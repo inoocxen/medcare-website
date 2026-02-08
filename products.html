@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="สินค้าทั้งหมด - MedCare Medical E-commerce">
+  <title>Products - MedCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        MedCare
+      </a>
+      
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <div class="navbar-actions">
+        <button class="navbar-btn" id="search-btn" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button class="navbar-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="account.html" class="navbar-btn" aria-label="Account">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="cart.html" class="navbar-btn cart-btn" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </a>
+        <button class="navbar-btn navbar-mobile-toggle" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="search-modal">
+    <div class="search-modal-backdrop"></div>
+    <div class="search-modal-content">
+      <div class="search-input-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" class="search-input" placeholder="ค้นหาสินค้า...">
+        <button class="search-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="page-with-sidebar">
+    <div class="container">
+      <div class="products-layout">
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar">
+          <div class="filter-header">
+            <h3>🔍 ตัวกรอง</h3>
+            <button class="filter-clear">ล้างทั้งหมด</button>
+          </div>
+          
+          <div class="filter-group">
+            <h4 class="filter-group-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              Category
+            </h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" value="skincare" data-filter="category">
+                <span>Skincare</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="supplements" data-filter="category">
+                <span>Supplements</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="suncare" data-filter="category">
+                <span>Suncare</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="medical" data-filter="category">
+                <span>Medical Devices</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="haircare" data-filter="category">
+                <span>Haircare</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="filter-group">
+            <h4 class="filter-group-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              Lifestyle
+            </h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" value="vegan" data-filter="lifestyle">
+                <span>🌿 Vegan</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="halal" data-filter="lifestyle">
+                <span>☪️ Halal</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="allergy-safe" data-filter="lifestyle">
+                <span>🛡️ Allergy-Safe</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" value="lgbtq" data-filter="lifestyle">
+                <span>🏳️‍🌈 LGBTQ+ Friendly</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="filter-group">
+            <h4 class="filter-group-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              ช่วงราคา
+            </h4>
+            <div class="filter-price-range">
+              <div class="price-inputs">
+                <div class="price-input-group">
+                  <label>Min</label>
+                  <input type="number" id="price-min" placeholder="0" class="form-input">
+                </div>
+                <span class="price-separator">-</span>
+                <div class="price-input-group">
+                  <label>Max</label>
+                  <input type="number" id="price-max" placeholder="5000" class="form-input">
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+        
+        <!-- Products Content -->
+        <div class="products-content">
+          <div class="section-header" style="margin-bottom: var(--spacing-lg);">
+            <div>
+              <h1 class="section-title">สินค้าทั้งหมด</h1>
+              <p class="section-subtitle"><span class="results-count">8 สินค้า</span></p>
+            </div>
+            <select class="form-input" style="width: auto; padding: var(--spacing-sm) var(--spacing-md);">
+              <option>เรียงตาม: แนะนำ</option>
+              <option>ราคา: ต่ำ → สูง</option>
+              <option>ราคา: สูง → ต่ำ</option>
+              <option>ใหม่ล่าสุด</option>
+              <option>ยอดนิยม</option>
+            </select>
+          </div>
+          
+          <div class="products-grid">
+            <!-- Product 1 -->
+            <a href="product-sunscreen.html" class="product-card" data-id="1" data-category="skincare" data-lifestyle="vegan,allergy-safe" data-price="590">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop" alt="Sunscreen">
+                <div class="product-badges">
+                  <span class="product-badge vegan">Vegan</span>
+                  <span class="product-badge allergy-safe">Allergy-Safe</span>
+                </div>
+                <button class="product-wishlist" data-id="1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <div class="product-rating">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      4.8 (234 reviews)
+                    </div>
+                    <p class="product-quick-desc">ครีมกันแดดสูตรอ่อนโยน เหมาะสำหรับผิวแพ้ง่าย SPF50+ PA++++</p>
+                    <button class="product-quick-add" data-id="1" data-name="Gentle Sunscreen SPF50+ PA++++" data-price="590" data-image="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop">Quick Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Gentle Sunscreen SPF50+ PA++++</h3>
+                <div class="product-price">
+                  <span class="current">฿590</span>
+                  <span class="original">฿750</span>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product 2 -->
+            <a href="product-vitamin.html" class="product-card" data-id="2" data-category="supplements" data-lifestyle="halal" data-price="890">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1556228841-a3c527ebefe5?w=400&h=400&fit=crop" alt="Vitamin">
+                <div class="product-badges">
+                  <span class="product-badge halal">Halal</span>
+                </div>
+                <button class="product-wishlist" data-id="2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <div class="product-rating">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      4.9 (156 reviews)
+                    </div>
+                    <p class="product-quick-desc">วิตามินรวม Halal Certified สำหรับผู้ใหญ่</p>
+                    <button class="product-quick-add" data-id="2" data-name="Halal Multivitamin Complex" data-price="890" data-image="https://images.unsplash.com/photo-1556228841-a3c527ebefe5?w=400&h=400&fit=crop">Quick Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Halal Multivitamin Complex</h3>
+                <div class="product-price">
+                  <span class="current">฿890</span>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product 3 -->
+            <a href="product-serum.html" class="product-card" data-id="3" data-category="skincare" data-lifestyle="vegan" data-price="1290">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1570194065650-d99fb4ee16b5?w=400&h=400&fit=crop" alt="Serum">
+                <div class="product-badges">
+                  <span class="product-badge vegan">Vegan</span>
+                </div>
+                <button class="product-wishlist" data-id="3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <div class="product-rating">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      4.7 (89 reviews)
+                    </div>
+                    <p class="product-quick-desc">เซรั่มวิตามินซี 20% สูตร Vegan</p>
+                    <button class="product-quick-add" data-id="3" data-name="Vitamin C 20% Brightening Serum" data-price="1290" data-image="https://images.unsplash.com/photo-1570194065650-d99fb4ee16b5?w=400&h=400&fit=crop">Quick Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Vitamin C 20% Brightening Serum</h3>
+                <div class="product-price">
+                  <span class="current">฿1,290</span>
+                  <span class="original">฿1,590</span>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product 4 -->
+            <a href="product-lotion.html" class="product-card" data-id="4" data-category="skincare" data-lifestyle="allergy-safe" data-price="450">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=400&fit=crop" alt="Lotion">
+                <div class="product-badges">
+                  <span class="product-badge allergy-safe">Allergy-Safe</span>
+                </div>
+                <button class="product-wishlist" data-id="4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <div class="product-rating">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      4.6 (178 reviews)
+                    </div>
+                    <p class="product-quick-desc">โลชั่นบำรุงผิว สูตรอ่อนโยน</p>
+                    <button class="product-quick-add" data-id="4" data-name="Gentle Body Lotion for Sensitive Skin" data-price="450" data-image="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&h=400&fit=crop">Quick Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Gentle Body Lotion for Sensitive Skin</h3>
+                <div class="product-price">
+                  <span class="current">฿450</span>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product 5 -->
+            <a href="product-cleanser.html" class="product-card" data-id="5" data-category="skincare" data-lifestyle="vegan,halal" data-price="390">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop" alt="Cleanser">
+                <div class="product-badges">
+                  <span class="product-badge vegan">Vegan</span>
+                  <span class="product-badge halal">Halal</span>
+                </div>
+                <button class="product-wishlist" data-id="5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <div class="product-rating">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      4.8 (312 reviews)
+                    </div>
+                    <p class="product-quick-desc">คลีนเซอร์สูตรอ่อนโยน pH balanced</p>
+                    <button class="product-quick-add" data-id="5" data-name="Gentle Foam Cleanser pH 5.5" data-price="390" data-image="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop">Quick Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Gentle Foam Cleanser pH 5.5</h3>
+                <div class="product-price">
+                  <span class="current">฿390</span>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product 6 -->
+            <a href="product-toner.html" class="product-card" data-id="6" data-category="medical" data-lifestyle="allergy-safe" data-price="1990">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop" alt="Medical">
+                <div class="product-badges">
+                  <span class="product-badge allergy-safe">Allergy-Safe</span>
+                </div>
+                <button class="product-wishlist" data-id="6">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <div class="product-rating">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      4.9 (445 reviews)
+                    </div>
+                    <p class="product-quick-desc">เครื่องวัดความดันโลหิต ใช้งานง่าย</p>
+                    <button class="product-quick-add" data-id="6" data-name="Digital Blood Pressure Monitor" data-price="1990" data-image="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop">Quick Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Digital Blood Pressure Monitor</h3>
+                <div class="product-price">
+                  <span class="current">฿1,990</span>
+                  <span class="original">฿2,490</span>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product 7 -->
+            <a href="product-omega.html" class="product-card" data-id="7" data-category="skincare" data-lifestyle="vegan" data-price="550">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop" alt="Toner">
+                <div class="product-badges">
+                  <span class="product-badge vegan">Vegan</span>
+                </div>
+                <button class="product-wishlist" data-id="7">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <div class="product-rating">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      4.5 (67 reviews)
+                    </div>
+                    <p class="product-quick-desc">โทนเนอร์ไฮยาลูรอน สูตรอ่อนโยน</p>
+                    <button class="product-quick-add" data-id="7" data-name="Hyaluronic Acid Hydrating Toner" data-price="550" data-image="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop">Quick Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Hyaluronic Acid Hydrating Toner</h3>
+                <div class="product-price">
+                  <span class="current">฿550</span>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product 8 -->
+            <a href="product-medical.html" class="product-card" data-id="8" data-category="supplements" data-lifestyle="halal,vegan" data-price="790">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1550572017-edd951b55104?w=400&h=400&fit=crop" alt="Omega">
+                <div class="product-badges">
+                  <span class="product-badge halal">Halal</span>
+                  <span class="product-badge vegan">Vegan</span>
+                </div>
+                <button class="product-wishlist" data-id="8">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <div class="product-rating">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                      4.7 (201 reviews)
+                    </div>
+                    <p class="product-quick-desc">โอเมก้า 3 จากสาหร่าย สูตร Vegan</p>
+                    <button class="product-quick-add" data-id="8" data-name="Vegan Omega-3 Algae Oil Capsules" data-price="790" data-image="https://images.unsplash.com/photo-1550572017-edd951b55104?w=400&h=400&fit=crop">Quick Add</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Vegan Omega-3 Algae Oil Capsules</h3>
+                <div class="product-price">
+                  <span class="current">฿790</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            MedCare
+          </h3>
+          <p>แพลตฟอร์ม E-commerce สำหรับผู้ที่มีภูมิแพ้, LGBTQ, Halal และ Vegan</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="#">FAQ</a>
+            <a href="#">Shipping Info</a>
+            <a href="#">Returns</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MedCare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+

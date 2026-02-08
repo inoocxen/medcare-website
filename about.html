@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="เกี่ยวกับเรา - MedCare Medical E-commerce">
+  <title>About Us - MedCare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        MedCare
+      </a>
+      
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <div class="navbar-actions">
+        <button class="navbar-btn" id="search-btn" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button class="navbar-btn" id="theme-toggle" aria-label="Toggle theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="account.html" class="navbar-btn" aria-label="Account">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="cart.html" class="navbar-btn cart-btn" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="search-modal">
+    <div class="search-modal-backdrop"></div>
+    <div class="search-modal-content">
+      <div class="search-input-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" class="search-input" placeholder="ค้นหาสินค้า...">
+        <button class="search-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="search-body">
+        <div class="search-section">
+          <h4 class="search-section-title">Popular Searches</h4>
+          <div class="search-tags">
+            <button class="search-tag">Vegan Skincare</button>
+            <button class="search-tag">Halal Supplements</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>เกี่ยวกับ MedCare</h1>
+      <p>แพลตฟอร์ม E-commerce ที่ใส่ใจทุกคน</p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section class="about-content">
+    <div class="container">
+      <div class="about-section">
+        <h2>เรื่องราวของเรา</h2>
+        <div class="about-text collapsed" id="story-content">
+          <p>MedCare เกิดขึ้นจากประสบการณ์ส่วนตัวของผู้ก่อตั้งที่มีปัญหาเรื่องภูมิแพ้ผิวหนัง ทำให้เข้าใจดีว่าการหาสินค้าที่ปลอดภัยสำหรับผู้ที่มีปัญหาสุขภาพเฉพาะทางนั้นยากลำบากเพียงใด</p>
+          <br>
+          <p>เราจึงตั้งใจสร้างแพลตฟอร์มที่รวบรวมสินค้าคุณภาพสำหรับผู้ที่มีความต้องการเฉพาะ ไม่ว่าจะเป็นผู้ที่มีภูมิแพ้ ผู้ที่รับประทานอาหาร Vegan ผู้ที่ต้องการสินค้า Halal หรือสมาชิกชุมชน LGBTQ+ ที่ต้องการสินค้าที่เข้าใจและตอบโจทย์ความต้องการของพวกเขา</p>
+          <br>
+          <p>ทุกสินค้าบน MedCare ผ่านการคัดสรรอย่างพิถีพิถัน โดยเราให้ความสำคัญกับ:</p>
+          <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>ความปลอดภัยและคุณภาพของส่วนประกอบ</li>
+            <li>การรับรองจากหน่วยงานที่เกี่ยวข้อง (Vegan, Halal, Dermatologically Tested)</li>
+            <li>ความโปร่งใสในการแสดงส่วนประกอบ</li>
+            <li>ระบบกรองสินค้าที่ช่วยให้ลูกค้าหาสินค้าที่เหมาะสมได้ง่าย</li>
+          </ul>
+          <br>
+          <p>เราเชื่อว่าทุกคนควรได้รับสิทธิ์ในการเข้าถึงสินค้าที่ปลอดภัยและตรงกับความต้องการของตัวเอง โดยไม่ต้องเสียเวลาค้นหาหรือกังวลเรื่องส่วนประกอบที่อาจเป็นอันตราย</p>
+        </div>
+        <button class="see-more-btn" data-target="story-content">
+          See More
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+      </div>
+      
+      <div class="about-section">
+        <h2>วิสัยทัศน์และพันธกิจ</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-xl);">
+          <div style="background: var(--color-bg-secondary); padding: var(--spacing-xl); border-radius: var(--radius-lg);">
+            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">🎯 วิสัยทัศน์</h3>
+            <p style="color: var(--color-text-secondary);">เป็นแพลตฟอร์ม E-commerce อันดับ 1 ของเอเชียตะวันออกเฉียงใต้ สำหรับสินค้าสุขภาพที่ตอบโจทย์ทุกไลฟ์สไตล์</p>
+          </div>
+          <div style="background: var(--color-bg-secondary); padding: var(--spacing-xl); border-radius: var(--radius-lg);">
+            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">🚀 พันธกิจ</h3>
+            <p style="color: var(--color-text-secondary);">มอบประสบการณ์การช้อปปิ้งที่ปลอดภัย สะดวก และใส่ใจทุกความต้องการของลูกค้า</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-section">
+        <h2>ค่านิยมหลัก</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-lg);">
+          <div style="text-align: center; padding: var(--spacing-lg);">
+            <div style="font-size: 48px; margin-bottom: var(--spacing-md);">🛡️</div>
+            <h4 style="margin-bottom: var(--spacing-sm);">ความปลอดภัย</h4>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">คัดสรรสินค้าที่ปลอดภัยสำหรับทุกคน</p>
+          </div>
+          <div style="text-align: center; padding: var(--spacing-lg);">
+            <div style="font-size: 48px; margin-bottom: var(--spacing-md);">🌿</div>
+            <h4 style="margin-bottom: var(--spacing-sm);">ความยั่งยืน</h4>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">ส่งเสริมสินค้าที่เป็นมิตรกับสิ่งแวดล้อม</p>
+          </div>
+          <div style="text-align: center; padding: var(--spacing-lg);">
+            <div style="font-size: 48px; margin-bottom: var(--spacing-md);">🏳️‍🌈</div>
+            <h4 style="margin-bottom: var(--spacing-sm);">ความหลากหลาย</h4>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">ยอมรับและเคารพทุกความแตกต่าง</p>
+          </div>
+          <div style="text-align: center; padding: var(--spacing-lg);">
+            <div style="font-size: 48px; margin-bottom: var(--spacing-md);">💎</div>
+            <h4 style="margin-bottom: var(--spacing-sm);">คุณภาพ</h4>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">มุ่งมั่นในการส่งมอบสินค้าคุณภาพ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            MedCare
+          </h3>
+          <p>แพลตฟอร์ม E-commerce สำหรับผู้ที่มีภูมิแพ้, LGBTQ, Halal และ Vegan</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            
+            <a href="about.html">About Us</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <div class="footer-links">
+            <a href="contact.html">Contact Us</a>
+            <a href="#">FAQ</a>
+            <a href="#">Shipping Info</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MedCare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
