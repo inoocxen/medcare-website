@@ -1,7 +1,7 @@
 /* =========================================
    Medical E-commerce JavaScript
    Features: Dark Mode, Search Modal, Cart,
-   Filters, Wishlist, localStorage
+   Filters, Wishlist, localStorage, Language
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,7 +17,214 @@ document.addEventListener('DOMContentLoaded', function() {
   initProductGallery();
   updateCartBadge();
   initMobileFilter();
+  initLanguageSwitch();
+  initMobileDrawer();
 });
+
+/* ---------- Translation Dictionary ---------- */
+const translations = {
+  th: {
+    // Navbar
+    'nav.home': 'หน้าหลัก',
+    'nav.products': 'สินค้า',
+    'nav.about': 'เกี่ยวกับเรา',
+    'nav.contact': 'ติดต่อ',
+    'nav.account': 'บัญชี',
+    'nav.cart': 'ตะกร้า',
+    'nav.search': 'ค้นหา',
+    'nav.menu': 'เมนู',
+    
+    // Common buttons
+    'btn.add_to_cart': 'เพิ่มลงตะกร้า',
+    'btn.buy_now': 'ซื้อเลย',
+    'btn.see_more': 'ดูเพิ่มเติม',
+    'btn.see_less': 'ดูน้อยลง',
+    'btn.filter': 'ตัวกรอง',
+    'btn.clear_all': 'ล้างทั้งหมด',
+    'btn.checkout': 'ชำระเงิน',
+    'btn.continue_shopping': 'เลือกซื้อต่อ',
+    
+    // Settings
+    'setting.dark_mode': 'โหมดมืด',
+    'setting.language': 'ภาษา',
+    
+    // Footer
+    'footer.rights': 'สงวนลิขสิทธิ์',
+    
+    // Search
+    'search.placeholder': 'ค้นหาสินค้า...',
+    
+    // Cart
+    'cart.empty': 'ตะกร้าว่างเปล่า',
+    'cart.total': 'รวมทั้งหมด',
+    'cart.subtotal': 'ยอดรวม',
+    'cart.shipping': 'ค่าจัดส่ง',
+    'cart.free': 'ฟรี',
+    
+    // Reviews
+    'reviews.title': 'รีวิวจากลูกค้า',
+    'reviews.verified': 'ยืนยันแล้ว',
+    
+    // Product
+    'product.quantity': 'จำนวน',
+    'product.about': 'เกี่ยวกับสินค้า',
+    'product.related': 'สินค้าที่เกี่ยวข้อง'
+  },
+  en: {
+    // Navbar
+    'nav.home': 'Home',
+    'nav.products': 'Products',
+    'nav.about': 'About',
+    'nav.contact': 'Contact',
+    'nav.account': 'Account',
+    'nav.cart': 'Cart',
+    'nav.search': 'Search',
+    'nav.menu': 'Menu',
+    
+    // Common buttons
+    'btn.add_to_cart': 'Add to Cart',
+    'btn.buy_now': 'Buy Now',
+    'btn.see_more': 'See More',
+    'btn.see_less': 'See Less',
+    'btn.filter': 'Filter',
+    'btn.clear_all': 'Clear All',
+    'btn.checkout': 'Checkout',
+    'btn.continue_shopping': 'Continue Shopping',
+    
+    // Settings
+    'setting.dark_mode': 'Dark Mode',
+    'setting.language': 'Language',
+    
+    // Footer
+    'footer.rights': 'All rights reserved',
+    
+    // Search
+    'search.placeholder': 'Search products...',
+    
+    // Cart
+    'cart.empty': 'Your cart is empty',
+    'cart.total': 'Total',
+    'cart.subtotal': 'Subtotal',
+    'cart.shipping': 'Shipping',
+    'cart.free': 'Free',
+    
+    // Reviews
+    'reviews.title': 'Customer Reviews',
+    'reviews.verified': 'Verified',
+    
+    // Product
+    'product.quantity': 'Quantity',
+    'product.about': 'About This Item',
+    'product.related': 'Related Products'
+  }
+};
+
+/* ---------- Language Switch ---------- */
+function initLanguageSwitch() {
+  const currentLang = localStorage.getItem('medcare_lang') || 'th';
+  setLanguage(currentLang);
+  
+  // Desktop language toggle
+  const langToggle = document.querySelector('.lang-toggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', function() {
+      const newLang = currentLang === 'th' ? 'en' : 'th';
+      setLanguage(newLang);
+      localStorage.setItem('medcare_lang', newLang);
+      location.reload(); // Reload to apply all translations
+    });
+  }
+  
+  // Mobile language selector buttons
+  const langButtons = document.querySelectorAll('.lang-selector button');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const lang = this.dataset.lang;
+      setLanguage(lang);
+      localStorage.setItem('medcare_lang', lang);
+      location.reload();
+    });
+  });
+}
+
+function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  
+  // Update lang toggle button text
+  const langCodeEl = document.querySelector('.lang-toggle .lang-code');
+  if (langCodeEl) {
+    langCodeEl.textContent = lang.toUpperCase();
+  }
+  
+  // Update lang selector active state
+  const langButtons = document.querySelectorAll('.lang-selector button');
+  langButtons.forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  
+  // Translate elements with data-i18n attribute
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  
+  // Translate placeholders
+  const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+  placeholders.forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (translations[lang] && translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+}
+
+function t(key) {
+  const lang = localStorage.getItem('medcare_lang') || 'th';
+  return translations[lang] && translations[lang][key] ? translations[lang][key] : key;
+}
+
+/* ---------- Mobile Drawer ---------- */
+function initMobileDrawer() {
+  const toggle = document.querySelector('.navbar-mobile-toggle');
+  const drawer = document.getElementById('mobile-drawer');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  const closeBtn = document.querySelector('.mobile-drawer-close');
+  
+  if (!toggle || !drawer) return;
+  
+  function openDrawer() {
+    drawer.classList.add('active');
+    if (overlay) overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeDrawer() {
+    drawer.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  toggle.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+  
+  // Dark mode toggle in drawer
+  const darkModeToggle = document.getElementById('drawer-dark-mode');
+  if (darkModeToggle) {
+    const isDark = document.body.classList.contains('dark-mode');
+    darkModeToggle.classList.toggle('active', isDark);
+    
+    darkModeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      this.classList.toggle('active');
+      localStorage.setItem('medcare_theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+  }
+}
+
 
 /* ---------- Mobile Filter Toggle ---------- */
 function initMobileFilter() {
