@@ -2415,43 +2415,23 @@ textarea.form-input {
 
 /* ---------- Tablet (768px and below) ---------- */
 @media (max-width: 768px) {
-  /* Navbar hamburger menu */
+  /* Navbar hamburger menu - show only hamburger */
   .navbar-mobile-toggle {
     display: flex;
     order: 10;
   }
   
+  /* Hide navbar links completely on mobile (drawer has them) */
   .navbar-nav {
-    display: none;
-    position: absolute;
-    top: var(--navbar-height);
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    background: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
-    padding: var(--spacing-md);
-    gap: var(--spacing-xs);
-    box-shadow: var(--shadow-lg);
+    display: none !important;
   }
   
-  .navbar-nav.active {
-    display: flex;
+  /* Hide lang toggle and theme toggle on mobile (they're in drawer) */
+  .lang-toggle,
+  #theme-toggle {
+    display: none !important;
   }
-  
-  .navbar-nav a {
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-base);
-  }
-  
-  .navbar-nav a:hover {
-    background: var(--color-bg-secondary);
-  }
-  
-  .navbar-nav a::after {
-    display: none;
-  }
+
   
   /* Account page - remove sticky sidebar */
   .account-layout {

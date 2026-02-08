@@ -124,14 +124,14 @@ function initLanguageSwitch() {
   const currentLang = localStorage.getItem('medcare_lang') || 'th';
   setLanguage(currentLang);
   
-  // Desktop language toggle
+  // Desktop language toggle (click to toggle between th and en)
   const langToggle = document.querySelector('.lang-toggle');
   if (langToggle) {
     langToggle.addEventListener('click', function() {
-      const newLang = currentLang === 'th' ? 'en' : 'th';
-      setLanguage(newLang);
+      const storedLang = localStorage.getItem('medcare_lang') || 'th';
+      const newLang = storedLang === 'th' ? 'en' : 'th';
       localStorage.setItem('medcare_lang', newLang);
-      location.reload(); // Reload to apply all translations
+      location.reload();
     });
   }
   
@@ -140,7 +140,6 @@ function initLanguageSwitch() {
   langButtons.forEach(btn => {
     btn.addEventListener('click', function() {
       const lang = this.dataset.lang;
-      setLanguage(lang);
       localStorage.setItem('medcare_lang', lang);
       location.reload();
     });
