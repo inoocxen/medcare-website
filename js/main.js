@@ -16,7 +16,42 @@ document.addEventListener('DOMContentLoaded', function() {
   initCart();
   initProductGallery();
   updateCartBadge();
+  initMobileFilter();
 });
+
+/* ---------- Mobile Filter Toggle ---------- */
+function initMobileFilter() {
+  const filterToggleBtn = document.getElementById('filter-toggle-btn');
+  const filterSidebar = document.getElementById('filter-sidebar');
+  const filterOverlay = document.getElementById('filter-overlay');
+  const filterCloseBtn = document.getElementById('filter-close-btn');
+  
+  if (!filterToggleBtn || !filterSidebar) return;
+  
+  // Open filter
+  filterToggleBtn.addEventListener('click', function() {
+    filterSidebar.classList.add('active');
+    filterOverlay.classList.add('active');
+    filterToggleBtn.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+  
+  // Close filter
+  function closeFilter() {
+    filterSidebar.classList.remove('active');
+    filterOverlay.classList.remove('active');
+    filterToggleBtn.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  if (filterCloseBtn) {
+    filterCloseBtn.addEventListener('click', closeFilter);
+  }
+  
+  if (filterOverlay) {
+    filterOverlay.addEventListener('click', closeFilter);
+  }
+}
 
 /* ---------- Cart Storage ---------- */
 function getCart() {
